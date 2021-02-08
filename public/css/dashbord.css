@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.navigation {
+    position: fixed;
+    z-index: 1;
+    width: 60px;
+    height: 100%;
+    background: white;
+    overflow-y: hidden;
+    transition: 0.5s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.navigation:hover {
+    width: 300px;
+}
+
+.navigation ul {
+    position: absolute;
+    padding-left: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 3.5rem;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    color: #54667a;
+    list-style: none;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #54667a;
+}
+
+.navigation a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.navigation ul li a .icon .fa {
+    font-size: 24px;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+nav {
+    z-index: 2;
+}
+
+
+/*Toggle*/
+
+.toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    cursor: pointer;
+}
+
+.toggle :hover {
+    background: red;
+}
+
+.toggle :hover::before {
+    content: "\f0c9";
+}
+
+nav ul li {
+    margin: auto 1rem;
+}
+
+
+/*Main Content*/
+
+.main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card {
+    margin: 3rem;
+}
+
+@media only screen and (max-width:768px) {
+    .main {
+        flex-direction: column;
+    }
+    .flex>div {
+        flex: 1;
+    }
+}

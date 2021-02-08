@@ -1,0 +1,27 @@
+body {
+    background-color: #edf1f5;
+}
+
+.container {
+    padding: 3rem 1rem;
+}
+
+h1 {
+    text-align: center;
+    color: #313131;
+}
+
+select {
+    margin: 0;
+}
+
+table {
+    margin: 5rem auto;
+    background-color: white;
+}
+
+@media only screen and (max-width:768px) {
+    .container {
+        padding: 1rem;
+    }
+}
