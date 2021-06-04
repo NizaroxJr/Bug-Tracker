@@ -1,1 +1,1 @@
-# Bug-Tracker
+Bug Tracking System is a web application developed  for software companies. The main aim of the project is to manage the errors or bugs occur during software development phase and cycle. After the implementation of this project, the employees can update the issue details, solve issues and update the system from any location with internet access.
