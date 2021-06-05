@@ -1,0 +1,63 @@
+<%- include('../partials/header'); -%>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <link rel="stylesheet" href="/css/projects.css">
+    <%- include('../partials/sidebar'); -%>
+        <%- include('../partials/navbar'); -%>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card ">
+                            <a href="/projects/add"> <button type="submit" class="add btn btn-block btn-primary"><i class="fas fa-plus"></i>Create New Project</button>
+                            </a>
+                            <div class="card-header">
+                                <h4>Your Projects</h4>
+                                <p>All Projects In Database</p>
+
+                            </div>
+                            <div class="card-body">
+                                <table id="my-table" class="table table-hover  ">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Project Name</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Infos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        <% projects.forEach((project) =>{ %>
+                                            <tr>
+                                                <td>
+                                                    <%= project.name %>
+                                                </td>
+                                                <td>
+                                                    <%= project.description %>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="/projects/<%= project.name %>/users"><button style="margin-bottom: 0.5rem;" class="btn btn -sm btn-primary ">Manange Users</button></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/projects/<%= project.name %>"> <button class="btn btn-sm btn-secondary ">Details    </button></a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+
+                                            <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $('#my-table').DataTable();
+                });
+            </script>

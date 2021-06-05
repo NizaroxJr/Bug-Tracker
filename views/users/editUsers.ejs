@@ -1,0 +1,92 @@
+<%- include('../partials/header'); -%>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <link rel="stylesheet" href="/css/projects.css">
+    <%- include('../partials/sidebar'); -%>
+        <%- include('../partials/navbar'); -%>
+
+
+
+            <div class="container">
+                <div class="row">
+                    <div style="margin-top: 2rem;" class="col-lg-6 first">
+                        <div class="card mr-0 ml-0">
+                            <div class="card-header">
+                                <h4>
+                                    <%=project.name %> Users</h4>
+                                <p>All The Users In Your Project</p>
+                            </div>
+                            <div class="card-body">
+                                <table id="my-table" class="table table-hover  ">
+
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">User Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Role</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        <% project.users.forEach((User) =>{ %>
+                                            <tr>
+                                                <td>
+                                                    <%=User.name %>
+                                                </td>
+                                                <td>
+                                                    <%=User.username%>
+                                                </td>
+                                                <td>
+                                                    <%=User.role%>
+                                                </td>
+                                            </tr>
+
+                                            <%});%>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 ">
+                        <form action="/projects/<%=project.name%>/usersRemove" method="POST">
+                            <div style="margin: 5rem auto;">
+                                <label for=""><h5>Remove User</h5></label>
+                                <select class="custom-select first " name="name" size="5" required>
+                                <% project.users.forEach((User) =>{ %>
+                            
+                                <option value="<%=User.name %>"><%= User.name%></option>
+                            
+                                 <%}); %>                        
+                                </select>
+                                <button style="margin-top: 1rem;" class="btn btn-primary btn-block">Remove User</button>
+
+                            </div>
+                        </form>
+                        <form action="/projects/<%=project.name%>/usersAdd" method="POST">
+                            <div class="form-group">
+                                <select class="custom-select" size="5" name="users" required>
+                                  <option selected>Select User</option>
+                                  <% users.forEach(function(User,index){ %>
+                                        <option value='{"_id":"<%=User._id%>","username":"<%=User.username%> " ,"name":"<%=User.name %> " ,"role":"<%=User.role%> "} '><%= User.name%></option>
+                                   <%}); %>  
+                                </select>
+                                <button style="margin-top: 1rem;" class="btn btn-secondary btn-block">Add User</button>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $('#my-table').DataTable();
+                });
+            </script>

@@ -1,0 +1,31 @@
+<%- include('../partials/header'); -%>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <link rel="stylesheet" href="/css/projects.css">
+    <%- include('../partials/sidebar'); -%>
+        <%- include('../partials/navbar'); -%>
+
+            <div class="container">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4>Edit
+                            <%= project.name %>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/projects/<%=project.name%>/edit" method="POST">
+                            <div class="form-group">
+                                <label for="">Project Name</label>
+                                <input name="name" type="text" class="form-control" value="<%=project.name%>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Project Description</label>
+                                <input name="description" type="text" class="form-control" value="<%=project.description%>" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Edit Project</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>

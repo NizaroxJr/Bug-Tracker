@@ -1,0 +1,91 @@
+<%- include('../partials/header'); -%>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <link rel="stylesheet" href="/css/role.css">
+    <%- include('../partials/sidebar'); -%>
+        <%- include('../partials/navbar'); -%>
+
+            <div class="container">
+                <div class="row">
+                    <div style="margin-top: 2rem;" class="col-lg-6 first">
+                        <div class="card ">
+                            <div class="card-header">
+                                <h4>Your Personnel</h4>
+                                <p>All The Users In Your Database</p>
+                            </div>
+                            <div class="card-body">
+                                <table id="my-table" class="table table-hover  ">
+
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">User Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Role</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        <% Users.forEach(function(User,index){ %>
+                                            <tr>
+                                                <td>
+                                                    <%=User.name %>
+                                                </td>
+                                                <td>
+                                                    <%=User.username%>
+                                                </td>
+                                                <td>
+                                                    <%=User.role%>
+                                                </td>
+                                            </tr>
+
+                                            <%});%>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 ">
+                        <form action="role" method="POST">
+                            <div style="margin: 5rem auto;">
+                                <label for=""><h5>Select a User</h5></label>
+                                <select class="custom-select first " name="name" size="5" required>
+                        <% Users.forEach(function(User,index){ %>
+                            
+                                <option value="<%=User.name %>"><%= User.name%></option>
+                            
+                        <%}); %>                        
+                      </select>
+
+                            </div>
+                            <div>
+
+                                <label for=""><h5>Select The Role To Assign</h5></label>
+                                <select class="custom-select custom-select-lg mb-3 " name="role" required>
+                                    <option selected >Select Role / None</option>
+
+                                    <option value="Admin">Admin</option>
+                        
+                                    <option value="Developer">Developer</option>
+                        
+                                    <option value="Project Manager">Project Manager</option>
+                        
+                                    <option value="Submitter">Submitter</option>
+                         </select>
+
+                                <button style="margin-top: 5rem;" type="submit" class="btn btn-lg  btn-primary btn-block">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $('#my-table').DataTable();
+                });
+            </script>

@@ -1,0 +1,135 @@
+<%- include('../partials/header'); -%>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <link rel="stylesheet" href="/css/projects.css">
+    <%- include('../partials/sidebar'); -%>
+        <%- include('../partials/navbar'); -%>
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card" style="margin-right: 0px;">
+                            <div class=" card-header ">
+                                <h4>Details For
+                                    <%= project.name %>
+                                </h4>
+                                <a style="margin-right:1rem " href="/projects ">Back To List</a>
+                                <a href="/projects/<%=project.name %>/edit">Edit</a>
+                            </div>
+                            <div class=" card-body ">
+                                <div class="row ">
+                                    <div class="col-md-6">
+                                        <h6>Project Name</h6>
+                                        <p>
+                                            <%= project.name %>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <h6>Project Description</h6>
+                                        <p>
+                                            <%= project.description %>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row ">
+                    <div class="col-lg-6 mr-0 ">
+                        <div class="card " style="margin-right: 0;">
+                            <div class="card-header ">
+                                <h4>Assigned Personnel</h4>
+                                <p>Current Users On This Project</p>
+                            </div>
+                            <div class="card-body ">
+
+                                <table id="my-table " class="table table-hover ">
+
+                                    <thead>
+                                        <tr>
+                                            <th scope="col ">User Name</th>
+                                            <th scope="col ">Email</th>
+                                            <th scope="col ">Role</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body ">
+                                        <% project.users.forEach((user) => { %>
+                                            <tr>
+                                                <td>
+                                                    <%= user.name %>
+                                                </td>
+                                                <td>
+                                                    <%= user.username %>
+                                                </td>
+                                                <td>
+                                                    <%= user.role %>
+                                                </td>
+                                            </tr>
+
+                                            <%});%>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ml-0 ">
+                        <div class="card ">
+                            <div class="card-header ">
+                                <h4>Tickets For This Project</h4>
+                                <p>Condensed Tcikets Details</p>
+                            </div>
+                            <div class="card-body " style="padding-left:0;padding-right: 0; ">
+                                <table id="my-table " class="table table-hover ">
+
+                                    <thead>
+                                        <tr>
+                                            <th scope="col ">Title</th>
+                                            <th scope="col ">Submitter</th>
+                                            <th scope="col ">Developer</th>
+                                            <th scope="col ">status</th>
+                                            <th scope="col ">Created</th>
+                                            <th scop="col ">Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body ">
+                                        <tr>
+                                            <td>
+                                                Great Work
+                                            </td>
+                                            <td>
+                                                Demos Submit
+                                            </td>
+                                            <td>
+                                                DemoD Dev
+                                            </td>
+                                            <td>
+                                                Open
+                                            </td>
+                                            <td>
+                                                2/12/2021 14:19
+                                            </td>
+                                            <td>
+                                                <a href="/tickets "><button></button></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $('#my-table').DataTable();
+                });
+            </script>

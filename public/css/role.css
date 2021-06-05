@@ -1,27 +1,33 @@
-body {
-    background-color: #edf1f5;
-}
-
-.container {
-    padding: 3rem 1rem;
-}
-
-h1 {
-    text-align: center;
-    color: #313131;
-}
-
-select {
-    margin: 0;
-}
-
-table {
-    margin: 5rem auto;
-    background-color: white;
-}
-
-@media only screen and (max-width:768px) {
-    .container {
-        padding: 1rem;
-    }
-}
+                            body {
+                            background-color: #edf1f5;
+                        }
+                        
+                        .container {
+                            padding: 3rem 1rem;
+                        }
+                        
+                        h1 {
+                            text-align: center;
+                            color: #313131;
+                        }
+                        
+                        select {
+                            margin: 0;
+                        }
+                        
+                        table {
+                            margin: 5rem auto;
+                            background-color: white;
+                        }
+                        
+                        .card-header {
+                            background-color: #313131;
+                            color: white;
+                            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                        }
+                        
+                        @media only screen and (max-width:768px) {
+                            .container {
+                                margin-left: 60px;
+                                padding: 1rem;
+                            }
